@@ -10,10 +10,10 @@ import UIKit
 final class DetailProductViewController: UIViewController {
 
     //MARK: - Private Properties
-    public var image = String()
-    public var text = String()
-    public let productImageView = UIImageView()
-    public let productTextLable = UILabel()
+    var image = String()
+    var text = String()
+    let productImageView = UIImageView()
+    let productTextLable = UILabel()
 
     //MARK: - UIViewController
     override func viewDidLoad() {
