@@ -22,7 +22,7 @@ final class DetailProductViewController: UIViewController {
         navigationController?.navigationBar.backgroundColor = .black
 
         addProductText()
-        addProductImage() 
+        addProductImage()
     }
 
     //MARK: - Private Methods
