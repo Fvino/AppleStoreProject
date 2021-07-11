@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		3D9C3D2D26985A6600206B57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D2C26985A6600206B57 /* AppDelegate.swift */; };
 		3D9C3D2F26985A6600206B57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D2E26985A6600206B57 /* SceneDelegate.swift */; };
-		3D9C3D3126985A6600206B57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D3026985A6600206B57 /* ViewController.swift */; };
+		3D9C3D3126985A6600206B57 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D3026985A6600206B57 /* BuyViewController.swift */; };
 		3D9C3D3426985A6600206B57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C3D3226985A6600206B57 /* Main.storyboard */; };
 		3D9C3D3626985A6900206B57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C3D3526985A6900206B57 /* Assets.xcassets */; };
 		3D9C3D3926985A6900206B57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D9C3D3726985A6900206B57 /* LaunchScreen.storyboard */; };
 		3D9C3D4426985A6A00206B57 /* AppleStoreProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D4326985A6A00206B57 /* AppleStoreProjectTests.swift */; };
 		3D9C3D4F26985A6A00206B57 /* AppleStoreProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D4E26985A6A00206B57 /* AppleStoreProjectUITests.swift */; };
+		3D9C3D992698830200206B57 /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D982698830200206B57 /* ForYouViewController.swift */; };
+		3D9C3D9B2698831700206B57 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D9A2698831700206B57 /* FindViewController.swift */; };
+		3D9C3D9D2698835700206B57 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D9C2698835700206B57 /* BasketViewController.swift */; };
+		3D9C3D9F2698C02600206B57 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D9E2698C02500206B57 /* DetailProductViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,7 @@
 		3D9C3D2926985A6600206B57 /* AppleStoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleStoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C3D2C26985A6600206B57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D9C3D2E26985A6600206B57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3D9C3D3026985A6600206B57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3D9C3D3026985A6600206B57 /* BuyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyViewController.swift; sourceTree = "<group>"; };
 		3D9C3D3326985A6600206B57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D9C3D3526985A6900206B57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D9C3D3826985A6900206B57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +53,10 @@
 		3D9C3D4A26985A6A00206B57 /* AppleStoreProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleStoreProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C3D4E26985A6A00206B57 /* AppleStoreProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleStoreProjectUITests.swift; sourceTree = "<group>"; };
 		3D9C3D5026985A6A00206B57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D9C3D982698830200206B57 /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
+		3D9C3D9A2698831700206B57 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
+		3D9C3D9C2698835700206B57 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		3D9C3D9E2698C02500206B57 /* DetailProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +109,11 @@
 			children = (
 				3D9C3D2C26985A6600206B57 /* AppDelegate.swift */,
 				3D9C3D2E26985A6600206B57 /* SceneDelegate.swift */,
-				3D9C3D3026985A6600206B57 /* ViewController.swift */,
+				3D9C3D3026985A6600206B57 /* BuyViewController.swift */,
+				3D9C3D982698830200206B57 /* ForYouViewController.swift */,
+				3D9C3D9A2698831700206B57 /* FindViewController.swift */,
+				3D9C3D9C2698835700206B57 /* BasketViewController.swift */,
+				3D9C3D9E2698C02500206B57 /* DetailProductViewController.swift */,
 				3D9C3D3226985A6600206B57 /* Main.storyboard */,
 				3D9C3D3526985A6900206B57 /* Assets.xcassets */,
 				3D9C3D3726985A6900206B57 /* LaunchScreen.storyboard */,
@@ -258,7 +270,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9C3D3126985A6600206B57 /* ViewController.swift in Sources */,
+				3D9C3D9D2698835700206B57 /* BasketViewController.swift in Sources */,
+				3D9C3D9B2698831700206B57 /* FindViewController.swift in Sources */,
+				3D9C3D9F2698C02600206B57 /* DetailProductViewController.swift in Sources */,
+				3D9C3D992698830200206B57 /* ForYouViewController.swift in Sources */,
+				3D9C3D3126985A6600206B57 /* BuyViewController.swift in Sources */,
 				3D9C3D2D26985A6600206B57 /* AppDelegate.swift in Sources */,
 				3D9C3D2F26985A6600206B57 /* SceneDelegate.swift in Sources */,
 			);
