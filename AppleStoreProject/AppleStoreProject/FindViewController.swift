@@ -35,7 +35,10 @@ final class FindViewController: UIViewController {
     private let beatsLable = UILabel()
     private let comparisonImageView = UIImageView()
     private let comparisonLable = UILabel()
-
+    private var viewsScrollView = UIScrollView()
+    private let caseImagesArray = ["case", "case2", "case3"]
+    private let beltImagesArray = ["belt", "belt2", "belt3"]
+    private let caseBownImagesArray = ["caseBown", "caseBown2", "caseBown3"]
 
     //MARK: - UIViewController
     override func viewDidLoad() {
@@ -78,39 +81,45 @@ final class FindViewController: UIViewController {
         cleanButton.setTitleColor(#colorLiteral(red: 0, green: 0.5898008943, blue: 1, alpha: 1), for: .normal)
         view.addSubview(cleanButton)
     }
+    private func createScrollView() {
+        let viewsScrollViewRect = CGRect(x: 0, y: 290, width: view.bounds.size.width, height: 240)
+        viewsScrollView.frame = viewsScrollViewRect
+        viewsScrollView.contentSize = CGSize(width: viewsScrollViewRect.size.width * 1.5,
+                                             height: viewsScrollViewRect.size.height)
+        view.addSubview(viewsScrollView)
+    }
     private func createCaseView() {
-        caseView.frame = CGRect(x: 25, y: 290, width: 140, height: 180)
+        caseView.frame = CGRect(x: 0, y: 0, width: 140, height: 180)
         caseView.backgroundColor = #colorLiteral(red: 0.1123520657, green: 0.1123785749, blue: 0.1123485938, alpha: 0.8470588235)
         caseView.layer.cornerRadius = 5
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped(sender:)))
         caseView.isUserInteractionEnabled = true
         caseView.addGestureRecognizer(imageTap)
-        view.addSubview(caseView)
+        viewsScrollView.addSubview(caseView)
     }
     private func createBeltView() {
-        beltView.frame = CGRect(x: 175, y: 290, width: 140, height: 180)
+        beltView.frame = CGRect(x: 150, y: 0, width: 140, height: 180)
         beltView.backgroundColor = #colorLiteral(red: 0.1123520657, green: 0.1123785749, blue: 0.1123485938, alpha: 0.8470588235)
         beltView.layer.cornerRadius = 5
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped(sender:)))
         beltView.isUserInteractionEnabled = true
         beltView.addGestureRecognizer(imageTap)
-        view.addSubview(beltView)
+        viewsScrollView.addSubview(beltView)
     }
     private func createCaseBownView() {
-        caseBownView.frame = CGRect(x: 325, y: 290, width: 140, height: 180)
+        caseBownView.frame = CGRect(x: 300, y: 0, width: 140, height: 180)
         caseBownView.backgroundColor = #colorLiteral(red: 0.1123520657, green: 0.1123785749, blue: 0.1123485938, alpha: 0.8470588235)
         caseBownView.layer.cornerRadius = 5
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped(sender:)))
         caseBownView.isUserInteractionEnabled = true
         caseBownView.addGestureRecognizer(imageTap)
-        view.addSubview(caseBownView)
+        viewsScrollView.addSubview(caseBownView)
     }
     private func createCaseImageView() {
         caseImageView.frame = CGRect(x: 20, y: 30, width: 100, height: 80)
         caseImageView.image = UIImage(named: "case")
         caseImageView.contentMode = .scaleAspectFill
         caseView.addSubview(caseImageView)
-
     }
     private func createCaseLable() {
         caseLable.frame = CGRect(x: 20, y: 120, width: 100, height: 50)
@@ -118,7 +127,7 @@ final class FindViewController: UIViewController {
         caseLable.textColor = .white
         caseLable.numberOfLines = 5
         caseLable.lineBreakMode = .byWordWrapping
-        caseLable.text = "Чехол Incase Flat для MacBookPro 16 дюймов"
+        caseLable.text = "Чехол Incase Flat для MacBookPro 16 дюймов."
         caseView.addSubview(caseLable)
     }
     private func createBeltImageView() {
@@ -126,7 +135,6 @@ final class FindViewController: UIViewController {
         beltImageView.image = UIImage(named: "belt")
         beltImageView.contentMode = .scaleAspectFit
         beltView.addSubview(beltImageView)
-
     }
     private func createBeltLable() {
 
@@ -145,7 +153,6 @@ final class FindViewController: UIViewController {
         caseBownView.addSubview(caseBownImageView)
     }
     private func createCaseBownLable() {
-
         caseBownLable.frame = CGRect(x: 20, y: 120, width: 100, height: 50)
         caseBownLable.font = UIFont(name: "arial", size: 11)
         caseBownLable.textColor = .white
@@ -214,6 +221,7 @@ final class FindViewController: UIViewController {
         view.addSubview(comparisonLable)
     }
     private func addVisualElements() {
+        createScrollView()
         createFindLable()
         createSeachTextField()
         createRecentlyViewedLable()
@@ -238,7 +246,6 @@ final class FindViewController: UIViewController {
         creatуComparisonImageView()
         createComparisonLable()
     }
-
     @objc private func productViewTapped(sender: UITapGestureRecognizer) {
         
         let detailProductVC = DetailProductViewController()
@@ -246,12 +253,18 @@ final class FindViewController: UIViewController {
         case caseView:
             detailProductVC.image = "case"
             detailProductVC.productTextLable.text = caseLable.text ?? ""
+            detailProductVC.productPriceLable.text = "3 990.00 руб."
+            detailProductVC.imagesArray = caseImagesArray
         case beltView:
             detailProductVC.image = "belt"
             detailProductVC.productTextLable.text = beltLable.text ?? ""
+            detailProductVC.productPriceLable.text = "3 900.00 руб."
+            detailProductVC.imagesArray = beltImagesArray
         case caseBownView:
             detailProductVC.image = "caseBown"
             detailProductVC.productTextLable.text = caseBownLable.text ?? ""
+            detailProductVC.productPriceLable.text = "20 990.00 руб."
+            detailProductVC.imagesArray = caseBownImagesArray
         default:
             break
         }
