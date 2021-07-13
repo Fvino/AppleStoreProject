@@ -10,14 +10,43 @@ import UIKit
 final class DetailProductViewController: UIViewController {
 
     //MARK: - Public Properties
-    let productTextLable = UILabel()
-    let productPriceLable = UILabel()
-    let productDiscriptionLable = UILabel()
-    var image = String()
-    var imagesArray = [String]()
-    let productImageView = UIImageView()
+
+    var productText: String! {
+        didSet {
+            productTextLable.text = productText
+        }
+    }
+
+    var productPrice: String! {
+        didSet {
+            productPriceLable.text = productPrice
+        }
+    }
+
+    var productDiscription: String! {
+        didSet {
+            productDiscriptionLable.text = productText
+        }
+    }
+
+    var image: String! {
+        didSet {
+            imageName = image
+        }
+    }
+
+    var imagesNamesArray: [String]! {
+        didSet {
+            imagesArray = imagesNamesArray
+        }
+    }
 
     //MARK: - Private Properties
+    private let productPriceLable = UILabel()
+    private let productDiscriptionLable = UILabel()
+    private var imageName = String()
+    private var imagesArray = [String]()
+    private let productTextLable = UILabel()
     private var shareButton = UIBarButtonItem()
     private var heartButton = UIBarButtonItem()
     private let grayProductColorButton = UIButton()
@@ -32,8 +61,6 @@ final class DetailProductViewController: UIViewController {
     private let adressDeliveryLable = UILabel()
     private let quantityLable = UILabel()
     private var quantityTextField = UITextField()
-
-    //MARK: - Private Properties
     private let productImagesScrollView = UIScrollView()
 
     //MARK: - UIViewController
@@ -55,6 +82,7 @@ final class DetailProductViewController: UIViewController {
         heartButton.tintColor = .systemBlue
         navigationItem.setRightBarButtonItems([heartButton ,shareButton], animated: true)
     }
+
     private func createProductText() {
         productTextLable.frame = CGRect(x: 15, y: 70, width: 380, height: 120)
         productTextLable.font = UIFont.boldSystemFont(ofSize: 17)
@@ -64,12 +92,14 @@ final class DetailProductViewController: UIViewController {
         productTextLable.textColor = .white
         view.addSubview(productTextLable)
     }
+
     private func createPriceLable() {
         productPriceLable.frame = CGRect(x: 150, y: 160, width: 120, height: 30)
         productPriceLable.textAlignment = .center
         productPriceLable.textColor = .gray
         view.addSubview(productPriceLable)
     }
+
     private func createProductImagesScrollView() {
         let imagesScrollViewRect = CGRect(x: 0, y: 210, width: view.bounds.size.width, height: 250)
         productImagesScrollView.frame = imagesScrollViewRect
@@ -79,6 +109,7 @@ final class DetailProductViewController: UIViewController {
         productImagesScrollView.indicatorStyle = .white
         view.addSubview(productImagesScrollView)
     }
+
     private func createProductDiscriptionLable() {
         productDiscriptionLable.frame = CGRect(x: 15, y: 450, width: 380, height: 50)
         productDiscriptionLable.textAlignment = .center
@@ -89,18 +120,21 @@ final class DetailProductViewController: UIViewController {
         productDiscriptionLable.text = productTextLable.text
         view.addSubview(productDiscriptionLable)
     }
+
     private func createGrayProductColorButton() {
         grayProductColorButton.frame = CGRect(x: 165, y: 520, width: 30, height: 30)
         grayProductColorButton.layer.cornerRadius = 15
         grayProductColorButton.backgroundColor = .gray
         view.addSubview(grayProductColorButton)
     }
+
     private func createBlackProductColorButton() {
         blackProductColorButton.frame = CGRect(x: 215, y: 520, width: 30, height: 30)
         blackProductColorButton.layer.cornerRadius = 15
         blackProductColorButton.backgroundColor = #colorLiteral(red: 0.1419389649, green: 0.1433443012, blue: 0.1433443012, alpha: 1)
         view.addSubview(blackProductColorButton)
     }
+
     private func createCompabilityImageView() {
         compatibilityImageView.frame = CGRect(x: 65, y: 580, width: 18, height: 18)
         compatibilityImageView.image = UIImage(systemName: "checkmark.circle.fill")
@@ -109,6 +143,7 @@ final class DetailProductViewController: UIViewController {
         compatibilityImageView.backgroundColor = .black
         view.addSubview(compatibilityImageView)
     }
+
     private func createCompabilityLable() {
         compatibilityLable.frame = CGRect(x: 90, y: 580, width: 100, height: 20)
         compatibilityLable.text = "Совместимо с"
@@ -117,6 +152,7 @@ final class DetailProductViewController: UIViewController {
         compatibilityLable.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(compatibilityLable)
     }
+
     private func createCompabilityProductLable() {
         compabilityProductLable.frame = CGRect(x: 190, y: 580, width: 150, height: 20)
         compabilityProductLable.text = "MacBook Pro - Евгений"
@@ -125,6 +161,7 @@ final class DetailProductViewController: UIViewController {
         compabilityProductLable.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(compabilityProductLable)
     }
+
     private func createQuantityLable() {
         quantityLable.frame = CGRect(x: 50, y: 640, width: 250, height: 20)
         quantityLable.text = "Введите количество товара:"
@@ -132,6 +169,7 @@ final class DetailProductViewController: UIViewController {
         quantityLable.font = .boldSystemFont(ofSize: 15)
         view.addSubview(quantityLable)
     }
+
     private func createQuantityTextField() {
         quantityTextField.frame = CGRect(x: 300, y: 635, width: 90, height: 30)
         quantityTextField.backgroundColor = #colorLiteral(red: 0.1123520657, green: 0.1123785749, blue: 0.1123485938, alpha: 0.8470588235)
@@ -143,6 +181,7 @@ final class DetailProductViewController: UIViewController {
         quantityTextField.keyboardType = .numberPad
         view.addSubview(quantityTextField)
     }
+
     private func createAddToBusketButton() {
         addToBasketButton.frame = CGRect(x: 15, y: 680, width: 380, height: 35)
         addToBasketButton.backgroundColor = #colorLiteral(red: 0.1868417395, green: 0.5818876385, blue: 1, alpha: 1)
@@ -151,12 +190,14 @@ final class DetailProductViewController: UIViewController {
         addToBasketButton.addTarget(self, action: #selector(addToBasketAction), for: .touchUpInside)
         view.addSubview(addToBasketButton)
     }
+
     private func createDeliveryImageView() {
         deliveryImageView.frame = CGRect(x: 15, y: 747, width: 17, height: 17)
         deliveryImageView.image = UIImage(systemName: "shippingbox")
         deliveryImageView.tintColor = .gray
         view.addSubview(deliveryImageView)
     }
+
     private func createMainDeliveryLable() {
         mainDeliveryLable.frame = CGRect(x: 50, y: 745, width: 300, height: 20)
         mainDeliveryLable.text = "Заказ сегодня в течении дня, доставка: "
@@ -164,6 +205,7 @@ final class DetailProductViewController: UIViewController {
         mainDeliveryLable.font = UIFont.boldSystemFont(ofSize: 12)
         view.addSubview(mainDeliveryLable)
     }
+
     private func createDateDeliveryLable() {
         dateDeliveryLable.frame = CGRect(x: 50, y: 760, width: 300, height: 20)
         dateDeliveryLable.text = "Чт 25 Фев - Бесплатно"
@@ -171,6 +213,7 @@ final class DetailProductViewController: UIViewController {
         dateDeliveryLable.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(dateDeliveryLable)
     }
+
     private func createAdressDeliveryLable() {
         adressDeliveryLable.frame = CGRect(x: 50, y: 775, width: 300, height: 20)
         adressDeliveryLable.text = "Варианты доставки для местоположения: 115533"
@@ -178,6 +221,7 @@ final class DetailProductViewController: UIViewController {
         adressDeliveryLable.font = UIFont.systemFont(ofSize: 12)
         view.addSubview(adressDeliveryLable)
     }
+
     private func createVisuaElemants() {
         adjustNavigationBar()
         createProductText()
@@ -198,32 +242,35 @@ final class DetailProductViewController: UIViewController {
         createDateDeliveryLable()
         createAdressDeliveryLable()
     }
+
     private func addImagesToScrollView(array: [String]) {
         var imageViewRect = CGRect(x: 60, y: -50, width: 300, height: 350)
 
-        guard  UIImage(named: "\(imagesArray[0])") != nil  else {return}
-        let firstImageView = imagesViewWithImage(paramImage: UIImage(named: "\(imagesArray[0])")!,
+        guard let firstImage = UIImage(named: "\(imagesArray[0])") else { return }
+        let firstImageView = imagesViewWithImage(paramImage: firstImage,
                                                  paramFrame: imageViewRect)
         productImagesScrollView.addSubview(firstImageView)
 
-        guard  UIImage(named: "\(imagesArray[1])") != nil  else {return}
+        guard let secondImage = UIImage(named: "\(imagesArray[1])") else { return }
         imageViewRect = CGRect(x: 460, y: -50, width: 300, height: 350)
-        let secondImageView = imagesViewWithImage(paramImage: UIImage(named: "\(imagesArray[1])")!,
+        let secondImageView = imagesViewWithImage(paramImage: secondImage,
                                                   paramFrame: imageViewRect)
         productImagesScrollView.addSubview(secondImageView)
 
-        guard  UIImage(named: "\(imagesArray[2])") != nil  else {return}
+        guard let thirdImage = UIImage(named: "\(imagesArray[2])") else { return }
         imageViewRect = CGRect(x: 860, y: -50, width: 300, height: 350)
-        let thirdImageView = imagesViewWithImage(paramImage: UIImage(named: "\(imagesArray[2])")!,
+        let thirdImageView = imagesViewWithImage(paramImage: thirdImage,
                                                  paramFrame: imageViewRect)
         productImagesScrollView.addSubview(thirdImageView)
     }
+
     private func imagesViewWithImage(paramImage: UIImage, paramFrame: CGRect) -> UIImageView {
         let result = UIImageView(frame: paramFrame)
         result.contentMode = .scaleAspectFit
         result.image = paramImage
         return result
     }
+
     private func addTextFielNnotificationCenter() {
         NotificationCenter.default.addObserver(forName: UITextField.keyboardWillShowNotification,
                                                object: nil, queue: nil) { (nc) in
@@ -235,6 +282,7 @@ final class DetailProductViewController: UIViewController {
             self.view.frame.origin.y = 0.0
         }
     }
+    
     @objc private func addToBasketAction() {
         quantityTextField.endEditing(true)
     }
