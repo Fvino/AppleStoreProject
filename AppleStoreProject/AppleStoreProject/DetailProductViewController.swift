@@ -247,17 +247,14 @@ final class DetailProductViewController: UIViewController {
 
     private func addImagesToScrollView(array: [String]) {
         var imageViewRect = CGRect(x: 60, y: -50, width: 300, height: 350)
-        imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped(sender:)))
-
-        guard let firstImage = UIImage(named: "\(imagesArray[0])") else { return }
+        imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped))
+        guard let firstImage = UIImage(named: imagesArray.first ?? "") else { return }
         let firstImageView = imagesViewWithImage(paramImage: firstImage,
                                                  paramFrame: imageViewRect)
         firstImageView.isUserInteractionEnabled = true
         firstImageView.addGestureRecognizer(imageTap)
-        parametrImage = imagesArray[0]
-
+        parametrImage = imagesArray.first ?? ""
         productImagesScrollView.addSubview(firstImageView)
-
         guard let secondImage = UIImage(named: "\(imagesArray[1])") else { return }
         imageViewRect = CGRect(x: 460, y: -50, width: 300, height: 350)
         let secondImageView = imagesViewWithImage(paramImage: secondImage,
@@ -269,9 +266,6 @@ final class DetailProductViewController: UIViewController {
         let thirdImageView = imagesViewWithImage(paramImage: thirdImage,
                                                  paramFrame: imageViewRect)
         productImagesScrollView.addSubview(thirdImageView)
-
-
-
     }
 
     private func imagesViewWithImage(paramImage: UIImage, paramFrame: CGRect) -> UIImageView {
@@ -286,7 +280,7 @@ final class DetailProductViewController: UIViewController {
                                                object: nil, queue: nil) { (nc) in
             self.view.frame.origin.y = -250
         }
-
+        
         NotificationCenter.default.addObserver(forName: UITextField.keyboardWillHideNotification,
                                                object: nil, queue: nil) { (nc) in
             self.view.frame.origin.y = 0.0
@@ -297,10 +291,10 @@ final class DetailProductViewController: UIViewController {
         quantityTextField.endEditing(true)
     }
 
-    @objc private func productViewTapped(sender: UITapGestureRecognizer) {
+    @objc private func productViewTapped() {
         let webDetailVS = WebDetailsProductViewController()
         webDetailVS.name = parametrImage
-        present(webDetailVS, animated: true, completion: nil)
+        present(webDetailVS, animated: true)
     }
 }
 

@@ -19,7 +19,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let forYouVC = ForYouViewController()
         let findVC = FindViewController()
         let basketVC = BasketViewController()
-//        let webDetailsVC = WebDetailsViewController()
 
         let buyNavController = UINavigationController(rootViewController: buyVC)
         let forYouNavController = UINavigationController(rootViewController: forYouVC)
@@ -43,7 +42,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         forYouNavController.navigationBar.barTintColor = .black
         findNavController.navigationBar.barTintColor = .black
         basketNavController.navigationBar.barTintColor = .black
-//        webDetailsVC.view.backgroundColor = .black
 
         window?.rootViewController = tabBarVC
         window?.makeKeyAndVisible()
