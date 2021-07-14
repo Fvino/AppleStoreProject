@@ -62,7 +62,9 @@ final class DetailProductViewController: UIViewController {
     private let quantityLable = UILabel()
     private var quantityTextField = UITextField()
     private let productImagesScrollView = UIScrollView()
-
+    private var imageTap = UIGestureRecognizer()
+    private var parametrImage = String()
+    
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -245,12 +247,14 @@ final class DetailProductViewController: UIViewController {
 
     private func addImagesToScrollView(array: [String]) {
         var imageViewRect = CGRect(x: 60, y: -50, width: 300, height: 350)
-
-        guard let firstImage = UIImage(named: "\(imagesArray[0])") else { return }
+        imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped))
+        guard let firstImage = UIImage(named: imagesArray.first ?? "") else { return }
         let firstImageView = imagesViewWithImage(paramImage: firstImage,
                                                  paramFrame: imageViewRect)
+        firstImageView.isUserInteractionEnabled = true
+        firstImageView.addGestureRecognizer(imageTap)
+        parametrImage = imagesArray.first ?? ""
         productImagesScrollView.addSubview(firstImageView)
-
         guard let secondImage = UIImage(named: "\(imagesArray[1])") else { return }
         imageViewRect = CGRect(x: 460, y: -50, width: 300, height: 350)
         let secondImageView = imagesViewWithImage(paramImage: secondImage,
@@ -276,7 +280,7 @@ final class DetailProductViewController: UIViewController {
                                                object: nil, queue: nil) { (nc) in
             self.view.frame.origin.y = -250
         }
-
+        
         NotificationCenter.default.addObserver(forName: UITextField.keyboardWillHideNotification,
                                                object: nil, queue: nil) { (nc) in
             self.view.frame.origin.y = 0.0
@@ -285,6 +289,12 @@ final class DetailProductViewController: UIViewController {
     
     @objc private func addToBasketAction() {
         quantityTextField.endEditing(true)
+    }
+
+    @objc private func productViewTapped() {
+        let webDetailVS = WebDetailsProductViewController()
+        webDetailVS.name = parametrImage
+        present(webDetailVS, animated: true)
     }
 }
 

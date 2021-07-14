@@ -136,7 +136,7 @@ final class FindViewController: UIViewController {
         caseLable.textColor = .white
         caseLable.numberOfLines = 5
         caseLable.lineBreakMode = .byWordWrapping
-        caseLable.text = "Чехол Incase Flat для MacBookPro 16 дюймов."
+        caseLable.text = "Чехол Incase ICON Sleeve с плетением Woolenex для 13‑дюймовых MacBook Air и MacBook Pro"
         caseView.addSubview(caseLable)
     }
 
@@ -277,7 +277,7 @@ final class FindViewController: UIViewController {
         case caseView:
             detailProductVC.image = "case"
             detailProductVC.productText = caseLable.text ?? ""
-            detailProductVC.productPrice = "3 990.00 руб."
+            detailProductVC.productPrice = "5 090.00 руб."
             detailProductVC.imagesNamesArray = caseImagesArray
         case beltView:
             detailProductVC.image = "belt"
