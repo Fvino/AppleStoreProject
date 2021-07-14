@@ -62,7 +62,9 @@ final class DetailProductViewController: UIViewController {
     private let quantityLable = UILabel()
     private var quantityTextField = UITextField()
     private let productImagesScrollView = UIScrollView()
-
+    private var imageTap = UIGestureRecognizer()
+    private var parametrImage = String()
+    
     //MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -245,10 +247,15 @@ final class DetailProductViewController: UIViewController {
 
     private func addImagesToScrollView(array: [String]) {
         var imageViewRect = CGRect(x: 60, y: -50, width: 300, height: 350)
+        imageTap = UITapGestureRecognizer(target: self, action: #selector(productViewTapped(sender:)))
 
         guard let firstImage = UIImage(named: "\(imagesArray[0])") else { return }
         let firstImageView = imagesViewWithImage(paramImage: firstImage,
                                                  paramFrame: imageViewRect)
+        firstImageView.isUserInteractionEnabled = true
+        firstImageView.addGestureRecognizer(imageTap)
+        parametrImage = imagesArray[0]
+
         productImagesScrollView.addSubview(firstImageView)
 
         guard let secondImage = UIImage(named: "\(imagesArray[1])") else { return }
@@ -262,6 +269,9 @@ final class DetailProductViewController: UIViewController {
         let thirdImageView = imagesViewWithImage(paramImage: thirdImage,
                                                  paramFrame: imageViewRect)
         productImagesScrollView.addSubview(thirdImageView)
+
+
+
     }
 
     private func imagesViewWithImage(paramImage: UIImage, paramFrame: CGRect) -> UIImageView {
@@ -285,6 +295,12 @@ final class DetailProductViewController: UIViewController {
     
     @objc private func addToBasketAction() {
         quantityTextField.endEditing(true)
+    }
+
+    @objc private func productViewTapped(sender: UITapGestureRecognizer) {
+        let webDetailVS = WebDetailsProductViewController()
+        webDetailVS.name = parametrImage
+        present(webDetailVS, animated: true, completion: nil)
     }
 }
 

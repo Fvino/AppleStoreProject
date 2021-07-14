@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D06FD29269DE15B00B5CA21 /* WebDetailsProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D06FD28269DE15B00B5CA21 /* WebDetailsProductViewController.swift */; };
 		3D9C3D2D26985A6600206B57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D2C26985A6600206B57 /* AppDelegate.swift */; };
 		3D9C3D2F26985A6600206B57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D2E26985A6600206B57 /* SceneDelegate.swift */; };
 		3D9C3D3126985A6600206B57 /* BuyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D3026985A6600206B57 /* BuyViewController.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D06FD28269DE15B00B5CA21 /* WebDetailsProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDetailsProductViewController.swift; sourceTree = "<group>"; };
 		3D9C3D2926985A6600206B57 /* AppleStoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleStoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D9C3D2C26985A6600206B57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D9C3D2E26985A6600206B57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				3D9C3D9A2698831700206B57 /* FindViewController.swift */,
 				3D9C3D9C2698835700206B57 /* BasketViewController.swift */,
 				3D9C3D9E2698C02500206B57 /* DetailProductViewController.swift */,
+				3D06FD28269DE15B00B5CA21 /* WebDetailsProductViewController.swift */,
 				3D9C3D3226985A6600206B57 /* Main.storyboard */,
 				3D9C3D3526985A6900206B57 /* Assets.xcassets */,
 				3D9C3D3726985A6900206B57 /* LaunchScreen.storyboard */,
@@ -272,6 +275,7 @@
 			files = (
 				3D9C3D9D2698835700206B57 /* BasketViewController.swift in Sources */,
 				3D9C3D9B2698831700206B57 /* FindViewController.swift in Sources */,
+				3D06FD29269DE15B00B5CA21 /* WebDetailsProductViewController.swift in Sources */,
 				3D9C3D9F2698C02600206B57 /* DetailProductViewController.swift in Sources */,
 				3D9C3D992698830200206B57 /* ForYouViewController.swift in Sources */,
 				3D9C3D3126985A6600206B57 /* BuyViewController.swift in Sources */,
