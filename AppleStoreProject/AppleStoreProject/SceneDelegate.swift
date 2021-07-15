@@ -39,7 +39,6 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         basketVC.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(systemName: "bag"), tag: 3)
 
         buyNavController.navigationBar.barTintColor = .black
-        forYouNavController.navigationBar.barTintColor = .black
         findNavController.navigationBar.barTintColor = .black
         basketNavController.navigationBar.barTintColor = .black
 
