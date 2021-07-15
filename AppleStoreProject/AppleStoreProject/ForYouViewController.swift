@@ -28,37 +28,44 @@ final class ForYouViewController: UIViewController {
     private let informationDeliveryImage = UIImageView()
     private let informationDeliveryLable = UILabel()
     private let notificationDeliveryLable = UILabel()
-    private let notificationDeliveryImage = UIImageView()
+    private let notificationDeliveryImageView = UIImageView()
     private let notificationDeliveryUnderLineView = UIView()
     private let yourDevicesLable = UILabel()
     private let showDevicesButton = UIButton()
     private let mainScrollView = UIScrollView()
+    private let imagePicker = UIImagePickerController()
 
     //MARK: - UIForYouViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = "Для вас"
-        navigationController?.navigationBar.prefersLargeTitles = true
 
-        let barButton = UIBarButtonItem()
-        barButton.customView = userImageButton
-        navigationItem.rightBarButtonItem = barButton
-
-        mainScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        view = mainScrollView
-
-        view.backgroundColor = .white
-
+        adjustNavBar()
+        addScrollView()
         addVisualElements()
         saveAvatarImage()
+
+        view.backgroundColor = .white
     }
 
     //MARK: - Methods
+    private func adjustNavBar() {
+        navigationItem.title = "Для вас"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let barButton = UIBarButtonItem()
+        barButton.customView = userImageButton
+        navigationItem.rightBarButtonItem = barButton
+    }
+
+    private func addScrollView() {
+        mainScrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        view = mainScrollView
+    }
+
     private func saveAvatarImage() {
         guard let data = UserDefaults.standard.value(forKey: "avatar") as? Data else { return }
-        guard UIImage(data: data) != nil else { return }
-        userImageButton.setImage(UIImage(data: data)?.resizeImage(to: CGSize(width: 30, height: 30)), for: .normal)
+        guard let image = UIImage(data: data) else { return }
+        userImageButton.setImage(image.resizeImage(to: CGSize(width: 30, height: 30)), for: .normal)
     }
 
     private func createUserImageButton() {
@@ -192,11 +199,11 @@ final class ForYouViewController: UIViewController {
         view.addSubview(notificationDeliveryLable)
     }
 
-    private func createNotificationDeliveryImage() {
-        notificationDeliveryImage.frame = CGRect(x: 365, y: 577, width: 15, height: 15)
-        notificationDeliveryImage.image = UIImage(systemName: "chevron.right")
-        notificationDeliveryImage.tintColor = .systemGray
-        view.addSubview(notificationDeliveryImage)
+    private func createNotificationDeliveryImageView() {
+        notificationDeliveryImageView.frame = CGRect(x: 365, y: 577, width: 15, height: 15)
+        notificationDeliveryImageView.image = UIImage(systemName: "chevron.right")
+        notificationDeliveryImageView.tintColor = .systemGray
+        view.addSubview(notificationDeliveryImageView)
     }
 
     private func createnotificationDeliveryUnderLineView() {
@@ -219,8 +226,6 @@ final class ForYouViewController: UIViewController {
         view.addSubview(showDevicesButton)
     }
 
-    private let imagePicker = UIImagePickerController()
-
     private func addVisualElements() {
         createUserImageButton()
         createForYouUnderLineView()
@@ -239,7 +244,7 @@ final class ForYouViewController: UIViewController {
         createInformationDeliveryImage()
         createInformationDeliveryLable()
         createNotificationDeliveryLable()
-        createNotificationDeliveryImage()
+        createNotificationDeliveryImageView()
         createnotificationDeliveryUnderLineView()
         createyourDevicesLable()
         createShowDevicesButton()
