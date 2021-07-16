@@ -14,9 +14,12 @@ final class MyPagesViewController: UIPageViewController {
     private let nextButton = UIButton()
     private let getStartedButton = UIButton()
     private let appearance = UIPageControl()
-    private let info = [InfoHelper(imageName: "track", mainLable: "Track Your Cycle", lable: "Manage irregular period and learn to improve your period."),
-                        InfoHelper(imageName: "plan", mainLable: "Plan Your Pregnancy", lable: "Favorable days are important."),
-                        InfoHelper(imageName: "daily", mainLable: "Daily Health Insight",  lable: "Personal health insight.")]
+    private let info = [InfoHelper(imageName: "track", mainLable: "Track Your Cycle",
+                                   lable: "Manage irregular period and learn to improve your period."),
+                        InfoHelper(imageName: "plan", mainLable: "Plan Your Pregnancy",
+                                   lable: "Favorable days are important."),
+                        InfoHelper(imageName: "daily", mainLable: "Daily Health Insight",
+                                   lable: "Personal health insight.")]
 
     lazy var arrayInfoViewController: [InformationViewController] = {
         var infoVC = [InformationViewController]()
@@ -29,23 +32,21 @@ final class MyPagesViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor.white
+
         createSkipButton()
         createNextButton()
         createGetStarted()
+        adjustPageBar()
+
+        dataSource = self
+        delegate = self
     }
 
     //MARK: - UIPageViewController
     override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
         super.init(transitionStyle: .scroll, navigationOrientation: navigationOrientation, options: nil)
-        view.backgroundColor = UIColor.white
-        dataSource = self
-        delegate = self
-        setViewControllers([arrayInfoViewController[0]], direction: .forward, animated: true, completion: nil)
-        let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
-        appearance.pageIndicatorTintColor = UIColor.gray
-        appearance.currentPageIndicatorTintColor = UIColor.black
     }
-
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -78,8 +79,9 @@ final class MyPagesViewController: UIPageViewController {
         view.addSubview(nextButton)
         view.addSubview(getStartedButton)
     }
-    private func indexObserver(x: Int) {
-        switch x {
+
+    private func indexObserver(pageIndex: Int) {
+        switch pageIndex {
         case 2:
             getStartedButton.isHidden = false
             skipButton.isHidden = true
@@ -89,6 +91,13 @@ final class MyPagesViewController: UIPageViewController {
             skipButton.isHidden = false
             nextButton.isHidden = false
         }
+    }
+
+    private func adjustPageBar() {
+        setViewControllers([arrayInfoViewController[0]], direction: .forward, animated: true, completion: nil)
+        let appearance = UIPageControl.appearance(whenContainedInInstancesOf: [UIPageViewController.self])
+        appearance.pageIndicatorTintColor = UIColor.gray
+        appearance.currentPageIndicatorTintColor = UIColor.black
     }
 
     @objc private func myTabPresent() {
@@ -135,10 +144,11 @@ final class MyPagesViewController: UIPageViewController {
 }
 
 extension MyPagesViewController: UIPageViewControllerDataSource {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? InformationViewController else { return nil }
         if let index = arrayInfoViewController.firstIndex(of: viewController) {
-            indexObserver(x: index)
+            indexObserver(pageIndex: index)
 
             if index > 0 {
                 return arrayInfoViewController[index - 1]
@@ -149,10 +159,11 @@ extension MyPagesViewController: UIPageViewControllerDataSource {
 }
 
 extension MyPagesViewController: UIPageViewControllerDelegate {
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewController = viewController as? InformationViewController else { return nil }
         if let index = arrayInfoViewController.firstIndex(of: viewController) {
-            indexObserver(x: index)
+            indexObserver(pageIndex: index)
 
             if index < info.count - 1 {
                 return arrayInfoViewController[index + 1]

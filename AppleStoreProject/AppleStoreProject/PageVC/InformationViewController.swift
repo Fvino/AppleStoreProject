@@ -9,6 +9,8 @@ import UIKit
 
 final class InformationViewController: UIViewController {
 
+    
+
     //MARK: - Private Properties
     private lazy var infoImage: UIImageView = {
         let view = UIImageView()
@@ -37,19 +39,22 @@ final class InformationViewController: UIViewController {
 
     lazy var subWiew: [UIView] = [self.infoImage, self.mainText, self.text]
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = UIColor.white
+
+        for view in subWiew { self.view.addSubview(view) }
+    }
+
     //MARK: - init
     init(infoWith: InfoHelper) {
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = UIColor.white
-        edgesForExtendedLayout = []
 
         infoImage.image = UIImage(named: infoWith.imageName)
         mainText.text = infoWith.mainLable
         text.text = infoWith.lable
-
-        for view in subWiew { self.view.addSubview(view) }
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
