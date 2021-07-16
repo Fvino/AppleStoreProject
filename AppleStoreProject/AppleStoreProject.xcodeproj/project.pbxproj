@@ -20,6 +20,9 @@
 		3D9C3D9B2698831700206B57 /* FindViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D9A2698831700206B57 /* FindViewController.swift */; };
 		3D9C3D9D2698835700206B57 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D9C2698835700206B57 /* BasketViewController.swift */; };
 		3D9C3D9F2698C02600206B57 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9C3D9E2698C02500206B57 /* DetailProductViewController.swift */; };
+		3DECBA9826A0969F000E80D3 /* InfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECBA9726A0969F000E80D3 /* InfoHelper.swift */; };
+		3DECBA9A26A0972D000E80D3 /* MyPagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECBA9926A0972D000E80D3 /* MyPagesViewController.swift */; };
+		3DECBA9C26A09775000E80D3 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DECBA9B26A09775000E80D3 /* InformationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,9 @@
 		3D9C3D9A2698831700206B57 /* FindViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewController.swift; sourceTree = "<group>"; };
 		3D9C3D9C2698835700206B57 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		3D9C3D9E2698C02500206B57 /* DetailProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
+		3DECBA9726A0969F000E80D3 /* InfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHelper.swift; sourceTree = "<group>"; };
+		3DECBA9926A0972D000E80D3 /* MyPagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPagesViewController.swift; sourceTree = "<group>"; };
+		3DECBA9B26A09775000E80D3 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +117,7 @@
 			children = (
 				3D9C3D2C26985A6600206B57 /* AppDelegate.swift */,
 				3D9C3D2E26985A6600206B57 /* SceneDelegate.swift */,
+				3DECBA9426A06FCE000E80D3 /* PageVC */,
 				3D9C3D3026985A6600206B57 /* BuyViewController.swift */,
 				3D9C3D982698830200206B57 /* ForYouViewController.swift */,
 				3D9C3D9A2698831700206B57 /* FindViewController.swift */,
@@ -141,6 +148,16 @@
 				3D9C3D5026985A6A00206B57 /* Info.plist */,
 			);
 			path = AppleStoreProjectUITests;
+			sourceTree = "<group>";
+		};
+		3DECBA9426A06FCE000E80D3 /* PageVC */ = {
+			isa = PBXGroup;
+			children = (
+				3DECBA9926A0972D000E80D3 /* MyPagesViewController.swift */,
+				3DECBA9B26A09775000E80D3 /* InformationViewController.swift */,
+				3DECBA9726A0969F000E80D3 /* InfoHelper.swift */,
+			);
+			path = PageVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,11 +291,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9C3D9D2698835700206B57 /* BasketViewController.swift in Sources */,
+				3DECBA9C26A09775000E80D3 /* InformationViewController.swift in Sources */,
 				3D9C3D9B2698831700206B57 /* FindViewController.swift in Sources */,
 				3D06FD29269DE15B00B5CA21 /* WebDetailsProductViewController.swift in Sources */,
 				3D9C3D9F2698C02600206B57 /* DetailProductViewController.swift in Sources */,
+				3DECBA9826A0969F000E80D3 /* InfoHelper.swift in Sources */,
 				3D9C3D992698830200206B57 /* ForYouViewController.swift in Sources */,
 				3D9C3D3126985A6600206B57 /* BuyViewController.swift in Sources */,
+				3DECBA9A26A0972D000E80D3 /* MyPagesViewController.swift in Sources */,
 				3D9C3D2D26985A6600206B57 /* AppDelegate.swift in Sources */,
 				3D9C3D2F26985A6600206B57 /* SceneDelegate.swift in Sources */,
 			);
