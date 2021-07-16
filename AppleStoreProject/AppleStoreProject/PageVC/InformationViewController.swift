@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InformationViewController: UIViewController {
+final class InformationViewController: UIViewController {
 
     //MARK: - Private Properties
     private lazy var infoImage: UIImageView = {

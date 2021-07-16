@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyPagesViewController: UIPageViewController {
+final class MyPagesViewController: UIPageViewController {
 
     //MARK: - Private Properties
     private let skipButton = UIButton()
@@ -51,7 +51,6 @@ class MyPagesViewController: UIPageViewController {
     }
 
     //MARK: - Methods
-
     private func createSkipButton() {
         skipButton.frame = CGRect(x: 50, y: 850, width: 50, height: 30)
         skipButton.setTitle("SKIP", for: .normal)
